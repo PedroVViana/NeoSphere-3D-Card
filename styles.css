@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1D1E22, #383C4A);
+    perspective: 1500px;
+}
+
+.cards-container {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #ffffff15;
+    border-radius: 5px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    cursor: pointer;
+    will-change: transform, box-shadow;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba( 255, 255, 255, 0.2), transparent 70%);
+    transform: translateX(-100%) rotate(45deg);
+    transition: transform 0.5s ease-out;
+}
+
+
+.card:hover::before {
+    transform: translateX(200%) rotate(45px);
+    transition: all .5s;
+}
+
+.card:hover {
+    transform: rotateY(30deg) rotateX(20deg) translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    transition: all .5s;
+}
+
+.card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(100px);
+    text-align: center;
+    color: white;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.card:hover .card-content {
+    transform: translate(-50%, -50%) translateZ(150px);
+    transition: all .3s;
+}
+
+.card-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    transform: translateZ(30px);
+}
+
+.card-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    transform: translateZ(25px);
+}
+
+.card-content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    color: #8C52FF;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    transform: translateZ(20px);
+}
+
+.card-content a:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

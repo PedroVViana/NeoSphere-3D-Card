@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoSphere 3D Card</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="cards-container">
+        <div class="card">
+            <div class="card-content">
+                <h2>Card 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="#">Saiba Mais</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2>Card 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="#">Saiba Mais</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2>Card 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="#">Saiba Mais</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                card.style.transform = `rotateY(${x * 40}deg) rotateX(${-y * 40}deg) translateY(-10px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateY(0) rotateX(0) translateY(0)'
+            });
+
+            card.addEventListener('mouseseenter', () => {
+                card.querySelector('::before').style.transform = 'translatex(200%) rotate(45deg)'
+            })
+        });
+    </script>
+</body>
+</html>
